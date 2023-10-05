@@ -21,7 +21,9 @@ public class BookService {
 	public void create(CreateBookRequest createBookRequest) {
 		
 		Book book = createBookRequest.to();
-		Author authorFromDB = authorRepository.getAuthorWithMailAddress(book.getAuthor().getEmail());
+//		Author authorFromDB = authorRepository.getAuthorWithMailAddress(book.getAuthor().getEmail());
+//		Author authorFromDB = authorRepository.getAuthorWithMailAddressWithoutNative(book.getAuthor().getEmail());
+		Author authorFromDB = authorRepository.findByEmail(book.getAuthor().getEmail());
 		if(authorFromDB==null) {
 			authorFromDB = authorRepository.save(book.getAuthor());
 		}

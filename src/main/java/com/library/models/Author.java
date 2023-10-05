@@ -35,7 +35,7 @@ public class Author {
 	@Column(length =30)
 	private String name;
 	
-	@Column(length =30,unique = true,nullable=false)
+	@Column(length =30,unique = true, nullable=false)
 	private String email;
 	
 	@OneToMany(mappedBy = "author")
